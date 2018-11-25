@@ -6,8 +6,10 @@ TEXT = 1500
 # Create your models here.
 class Post(models.Model):
     title = models.CharField(max_length = TITLE)
+    subtitle = models.CharField(max_length = TITLE, default='Post subtitle')
     body = models.TextField(max_length = TEXT)
     date = models.DateTimeField()
+    mainPic = models.ImageField(upload_to='images/')
 
     def __str__(self):
-        return self.date + " - " + self.title
+        return self.date.strftime('%Y-%m-%d') + " - " + self.title

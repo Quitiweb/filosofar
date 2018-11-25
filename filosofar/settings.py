@@ -120,6 +120,14 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
+# STATIC_ROOT and STATIC_URL are for static files - files that are used by your web application and don't change by its users
+# i.e. static images(you site logo, backgrounds, etc)
 
 STATIC_URL = '/static/'
 STATIC_ROOT = '/home/rafrom3/filosofar.club/public/static/'
+
+# If you are using files, that are uploaded by users, images or not, MEDIA_ROOT and MEDIA_URL are used.
+# When you define upload_to it is concatenated with MEDIA_ROOT in your settings.
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = '/home/rafrom3/filosofar.club/public/media/'
