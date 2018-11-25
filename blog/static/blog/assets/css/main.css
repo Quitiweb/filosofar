@@ -3229,6 +3229,9 @@ input, select, textarea {
 							width: inherit;
 						}
 
+						#header .main .user {
+						}
+
 		#header form {
 			margin: 0;
 		}

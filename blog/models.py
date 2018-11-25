@@ -13,3 +13,6 @@ class Post(models.Model):
 
     def __str__(self):
         return self.date.strftime('%Y-%m-%d') + " - " + self.title
+
+class Imagen(models.Model):
+    imgFile = models.ImageField(upload_to='img/')

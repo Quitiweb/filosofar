@@ -35,6 +35,7 @@ ALLOWED_HOSTS = [
 
 INSTALLED_APPS = [
     'blog',
+    'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -58,7 +59,7 @@ ROOT_URLCONF = 'filosofar.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'blog/templates/blog')],
+        'DIRS': [os.path.join(BASE_DIR, 'blog/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -131,3 +132,8 @@ STATIC_ROOT = '/home/rafrom3/filosofar.club/public/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = '/home/rafrom3/filosofar.club/public/media/'
+
+
+# Login/logout redirects to homepage
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
