@@ -131,7 +131,8 @@ STATIC_ROOT = '/home/rafrom3/filosofar.club/public/static/'
 # When you define upload_to it is concatenated with MEDIA_ROOT in your settings.
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = '/home/rafrom3/filosofar.club/public/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+#MEDIA_ROOT = '/home/rafrom3/filosofar.club/public/media/'
 
 
 # Login/logout redirects to homepage
