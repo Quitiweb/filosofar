@@ -5,6 +5,7 @@ from django.urls import reverse
 
 from . import models
 from . import forms
+from .tasks import simulate_send_emails
 
 # Create your views here.
 #def index(request):
@@ -39,3 +40,7 @@ def member(request):
     images = models.Imagen.objects.all()
 
     return render(request, 'blog/member.html', {'images': images, 'form': form})
+
+def send_emails(request):
+    simulate_send_emails.delay(10)  # @UndefinedVariable
+    return HttpResponse('Emails sent using Celery')
