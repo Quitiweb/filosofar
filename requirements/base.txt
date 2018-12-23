@@ -4,3 +4,4 @@ djangorestframework
 pyparsing
 pytz
 psycopg2-binary
+celery

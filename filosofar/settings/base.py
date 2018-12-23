@@ -1,4 +1,4 @@
-# Django settings for filosofar project.
+# Django settings for filosofar project
 
 import os
 
@@ -15,10 +15,7 @@ SECRET_KEY = '++zp1aynsy_e@1sr)7n%or0%8e77^byh(7p8864739&xl(vgvc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    '.filosofar.club',
-    '127.0.0.1',
-]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -70,8 +67,13 @@ WSGI_APPLICATION = 'filosofar.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'filosofar_db',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        #'HOST': 'db',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
     }
 }
 
