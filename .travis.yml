@@ -10,3 +10,10 @@ install:
 
 script:
 - docker-compose run -e DJANGO_SETTINGS_MODULE=filosofar.settings.testing --no-deps --rm app py.test
+
+deploy:
+  - provider: script
+    script: bash scripts/deploy.sh
+    on:
+      branch: master
+    skip_cleanup: true
