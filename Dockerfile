@@ -1,17 +1,18 @@
 FROM python:3.6
 
-ARG requirements=requirements/production.txt
-ENV DJANGO_SETTINGS_MODULE=djangodocker.settings.production
-
 WORKDIR /app
+
+ARG requirements=requirements/development.txt
+
+ENV DJANGO_SETTINGS_MODULE=filosofar.settings.development
 
 COPY filosofar filosofar
 COPY manage.py /app/
 COPY requirements/ /app/requirements/ 
 
-RUN pip install -r $requirements
+RUN pip install -r $requirements && \
+  python manage.py collectstatic --noinput
 
-EXPOSE 8001
+EXPOSE 8000
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8001"]
-
+CMD ["python", "manage.py", "runserver", "127.0.0.1:8000"]

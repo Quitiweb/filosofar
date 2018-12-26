@@ -1,4 +1,4 @@
-# djangodocker/settings/production.py
+# filosofar/settings/production.py
 from os import environ
 from .base import *
 

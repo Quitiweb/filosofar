@@ -1,4 +1,4 @@
-# djangodocker/settings/development.py
+# filosofar/settings/development.py
 from .base import *
 
 INSTALLED_APPS += [

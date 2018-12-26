@@ -3,8 +3,10 @@
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+#BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROJECT_APP_ROOT = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+PROJECT_ROOT = os.path.abspath(os.path.dirname(PROJECT_APP_ROOT))
+PUBLIC_ROOT = os.path.abspath(os.path.join(PROJECT_ROOT, 'public'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -19,16 +21,18 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+#sys.path.insert(1, os.path.join(sys.path[0], '..'))
+#sys.path.append(BASE_DIR)
 
 INSTALLED_APPS = [
-    'blog',
-    'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'filosofar.apps.blog',
+    'filosofar.apps.accounts',
 ]
 
 MIDDLEWARE = [
@@ -42,11 +46,35 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'filosofar.urls'
+WSGI_APPLICATION = 'filosofar.wsgi.application'
+
+
+# Templates
+
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.request',
+    'django.core.context_processors.static',
+    'django.core.context_processors.tz',
+    'django.contrib.messages.context_processors.messages',
+)
+
+TEMPLATE_DIRS = (
+    os.path.join(PROJECT_ROOT, 'templates'),
+)
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'blog/templates')],
+        'DIRS': [os.path.join(PUBLIC_ROOT, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -59,7 +87,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'filosofar.wsgi.application'
+
 
 
 # Database
@@ -67,13 +95,11 @@ WSGI_APPLICATION = 'filosofar.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'filosofar_db',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        #'HOST': 'db',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'HOST': 'db',
+        'PORT': 5432,
     }
 }
 
@@ -101,15 +127,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
@@ -117,15 +138,14 @@ USE_TZ = True
 # i.e. static images(you site logo, backgrounds, etc)
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/home/rafrom3/filosofar.club/public/static/'
+STATIC_ROOT = os.path.join(PUBLIC_ROOT, 'static')
 
 # If you are using files, that are uploaded by users, images or not, MEDIA_ROOT and MEDIA_URL are used.
 # When you define upload_to it is concatenated with MEDIA_ROOT in your settings.
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(PUBLIC_ROOT, 'media')
 #MEDIA_ROOT = '/home/rafrom3/filosofar.club/public/media/'
-
 
 # Login/logout redirects to homepage
 LOGIN_REDIRECT_URL = '/'
