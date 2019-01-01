@@ -74,7 +74,7 @@ TEMPLATE_DIRS = (
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(PUBLIC_ROOT, 'templates')],
+        'DIRS': [os.path.join(PUBLIC_ROOT, 'templates'),'templates', 'filosofar/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -95,11 +95,8 @@ TEMPLATES = [
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'HOST': 'db',
-        'PORT': 5432,
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(PROJECT_ROOT, 'db.sqlite3'),
     }
 }
 
@@ -139,6 +136,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(PUBLIC_ROOT, 'static')
+
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_ROOT, 'static'),
+)
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
 
 # If you are using files, that are uploaded by users, images or not, MEDIA_ROOT and MEDIA_URL are used.
 # When you define upload_to it is concatenated with MEDIA_ROOT in your settings.
