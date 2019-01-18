@@ -150,6 +150,7 @@ STATICFILES_FINDERS = (
 # When you define upload_to it is concatenated with MEDIA_ROOT in your settings.
 
 MEDIA_URL = '/media/'
+#MEDIA_ROOT = os.path.join(PUBLIC_ROOT, 'media')
 MEDIA_ROOT = os.path.join(PUBLIC_ROOT, 'media')
 #MEDIA_ROOT = '/home/rafrom3/filosofar.club/public/media/'
 
