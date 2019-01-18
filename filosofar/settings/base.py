@@ -86,7 +86,7 @@ TEMPLATE_DIRS = (
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(PUBLIC_ROOT, 'templates'),'templates', 'filosofar/templates'],
+        'DIRS': [os.path.join(PROJECT_ROOT, 'templates'),'templates', 'filosofar/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
