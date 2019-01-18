@@ -4,9 +4,21 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 #BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# /home/rafrom3/filosofar.club/public/filosofar/filosofar
 PROJECT_APP_ROOT = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+
+# /home/rafrom3/filosofar.club/public/filosofar
 PROJECT_ROOT = os.path.abspath(os.path.dirname(PROJECT_APP_ROOT))
-PUBLIC_ROOT = os.path.abspath(os.path.join(PROJECT_ROOT, 'public'))
+
+# /home/rafrom3/filosofar.club/public/filosofar/public
+#PUBLIC_ROOT = os.path.abspath(os.path.join(PROJECT_ROOT))
+
+# /home/rafrom3/filosofar.club/public
+PUBLIC_ROOT = os.path.abspath(os.path.dirname(PROJECT_ROOT))
+
+
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
