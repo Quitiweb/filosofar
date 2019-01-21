@@ -29,7 +29,10 @@ SECRET_KEY = '++zp1aynsy_e@1sr)7n%or0%8e77^byh(7p8864739&xl(vgvc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.filosofar.club',]
+ALLOWED_HOSTS = [
+    '.filosofar.club',
+    '127.0.0.1',
+]
 
 
 # Application definition

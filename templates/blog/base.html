@@ -110,6 +110,8 @@
 				<!-- Main -->
 					<div id="main">
 
+						<button onclick="myFunction()">Try it</button>
+
 			   {% block main %}
 			   {% endblock %}
 
@@ -127,8 +129,15 @@
 			<script src="{% static 'blog/assets/js/util.js' %}"></script>
 			<script src="{% static 'blog/assets/js/main.js' %}"></script>
 
-			<script type='text/javascript'>gaSetUserId(document.getElementById('user_email').value);</script>
-			<?php echo " <script type='text/javascript'>gaSetUserId(document.getElementById('user_email').value);</script>"; ?>
+			<script>
+				var email = document.getElementById('userEmail').textContent;
+
+				function myFunction() {
+				  alert(email);
+				}
+			</script>
+
+			<script type='text/javascript'>gaSetUserId(document.getElementById('userEmail').textContent);</script>
 
 	</body>
 </html>
