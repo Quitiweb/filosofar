@@ -6,6 +6,13 @@
 				<div class="title">
 					<h2>Cargador de imagenes</h2>
 				</div>
+				<div class="meta">
+					{% if user.is_authenticated %}
+						<h5 id="userEmail">{{ user.email }}</h5>
+					{% else %}
+						<h5>Tienes cuenta de usuario? <a href="{% url 'login' %}">login</a></h5>
+					{% endif %}
+				</div>
 			</header>
 			<form method="post" action="{% url 'member' %}" enctype="multipart/form-data">
 				{% csrf_token %}
