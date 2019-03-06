@@ -105,6 +105,3 @@ venv.bak/
 
 # media_files
 public/
-
-# other
-prod.py
