@@ -3,21 +3,12 @@
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-#BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# /home/rafrom3/filosofar.club/public/filosofar/filosofar
 PROJECT_APP_ROOT = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
-
-# /home/rafrom3/filosofar.club/public/filosofar
 PROJECT_ROOT = os.path.abspath(os.path.dirname(PROJECT_APP_ROOT))
-
-# /home/rafrom3/filosofar.club/public/filosofar/public
-#PUBLIC_ROOT = os.path.abspath(os.path.join(PROJECT_ROOT))
-
-# /home/rafrom3/filosofar.club/public
-PUBLIC_ROOT = os.path.abspath(os.path.dirname(PROJECT_ROOT))
-
-
+HOST_ROOT = os.path.abspath(os.path.dirname(PROJECT_ROOT))
+PUBLIC_ROOT = os.path.abspath(os.path.join(HOST_ROOT, 'public'))
 
 
 # Quick-start development settings - unsuitable for production
