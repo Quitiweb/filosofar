@@ -1,7 +1,7 @@
 from django.db import models
 
 TITLE = 100
-TEXT = 1500
+TEXT = 15000
 
 # Create your models here.
 class Post(models.Model):

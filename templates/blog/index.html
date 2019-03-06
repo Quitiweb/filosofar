@@ -27,7 +27,7 @@
 				</div>
 			</header>
 			<a href="/single" class="image featured"><img src="{{ p.mainPic.url }}" alt="" /></a>
-			<p>{{ p.body }}</p> <!-- Reducir el limite de caracteres mostrados para aplicar "continue reading" -->
+			<p>{{ p.body | linebreaks }}</p> <!-- Reducir el limite de caracteres mostrados para aplicar "continue reading" -->
 			<footer>
 				<ul class="actions">
 					<li><a href="/single" class="button large">Continuar leyendo</a></li>
