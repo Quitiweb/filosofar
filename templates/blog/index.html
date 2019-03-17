@@ -14,7 +14,7 @@
 	</article>
 
 	<!-- Post -->
-	{% for p in post_list %} <!-- TODO: poner solo 3 mediante query -->
+	{% for p in post_list %}
 		<article class="post">
 			<header>
 				<div class="title">
@@ -22,12 +22,16 @@
 					<p>{{ p.subtitle }}</p>
 				</div>
 				<div class="meta">
-					<time class="published" datetime="2015-11-01">November 1, 2015</time>
-					<a href="#" class="author"><span class="name">Jane Doe</span><img src="{% static 'blog/images/avatar.jpg' %}" alt="" /></a>
+					<time class="published" datetime="{{ p.date }}">{{ p.date }}</time>
+					<a href="https://quitiweb.com" class="author"><span class="name">Qweb</span><img src="{% static 'blog/images/avatar.jpg' %}" alt="" /></a>
 				</div>
 			</header>
-			<a href="/single" class="image featured"><img src="{{ p.mainPic.url }}" alt="" /></a>
-			<p>{{ p.body | linebreaks }}</p> <!-- Reducir el limite de caracteres mostrados para aplicar "continue reading" -->
+			<a href="/single" class="image featured"><img src="{{ p.main_pic.url }}" alt="" /></a>
+
+			{% autoescape off %}
+				{{ p.introduccion }}
+			{% endautoescape %}
+
 			<footer>
 				<ul class="actions">
 					<li><a href="/single" class="button large">Continuar leyendo</a></li>
@@ -41,14 +45,6 @@
 		</article>
 	{% endfor %}
 
-	<!-- TODO: que solo aparezca si len(post_list > 3) -->
-	<!-- TODO: que al hacer click, funcione, claro... -->
-	<!-- Pagination -->
-		<ul class="actions pagination">
-			<li><a href="" class="disabled button large previous">Previous Page</a></li>
-			<li><a href="#" class="button large next">Next Page</a></li>
-		</ul>
-
 {% endblock %}
 
 {% block sidebar %}
@@ -59,8 +55,8 @@
 				<section id="intro">
 					<a href="#" class="logo"><img src="{% static 'blog/images/logo.jpg' %}" alt="" /></a>
 					<header>
-						<h2>Future Imperfect</h2>
-						<p>Another fine responsive site template by <a href="http://html5up.net">HTML5 UP</a></p>
+						<h2>Filosofar</h2>
+						<p>Porque un poco de filosofía viene bien de vez en cuando.</p>
 					</header>
 				</section>
 
@@ -69,16 +65,14 @@
 					<div class="mini-posts">
 
 						<!-- Mini Post -->
-						<!-- TODO: al menos 4 -->
-						<!-- TODO: debe ser una lista diferente a la ppal -->
-						{% for p in post_list %}
+						{% for p in random_mini_list %}
 							<article class="mini-post">
 								<header>
 									<h3><a href="/single">{{ p.title }}</a></h3>
-									<time class="published" datetime="2015-10-20">October 20, 2015</time>
-									<a href="#" class="author"><img src="{% static 'blog/images/avatar.jpg' %}" alt="" /></a>
+									<time class="published" datetime="{{ p.date }}">{{ p.date }}</time>
+									<a href="https://quitiweb.com" class="author"><img src="{% static 'blog/images/avatar.jpg' %}" alt="" /></a>
 								</header>
-								<a href="/single" class="image"><img src="{{ p.mainPic.url }}" alt="" /></a>
+								<a href="/single" class="image"><img src="{{ p.main_pic.url }}" alt="" /></a>
 							</article>
 						{% endfor %}
 
@@ -86,20 +80,18 @@
 				</section>
 
 			<!-- Posts List -->
-			<!-- TODO: al menos 5 -->
-			<!-- TODO: una lista aparte de la ppal y la anterior -->
 				<section>
 					<ul class="posts">
-						{% for p in post_list %}
-						<li>
-							<article>
-								<header>
-									<h3><a href="/single">{{ p.title }}</a></h3>
-									<time class="published" datetime="2015-10-20">October 20, 2015</time>
-								</header>
-								<a href="/single" class="image"><img src="{{ p.mainPic.url }}" alt="" /></a>
-							</article>
-						</li>
+						{% for p in random_list %}
+							<li>
+								<article>
+									<header>
+										<h3><a href="/single">{{ p.title }}</a></h3>
+										<time class="published" datetime="{{ p.date }}">{{ p.date }}</time>
+									</header>
+									<a href="/single" class="image"><img src="{{ p.main_pic.url }}" alt="" /></a>
+								</article>
+							</li>
 						{% endfor %}
 					</ul>
 				</section>

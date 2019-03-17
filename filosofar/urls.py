@@ -23,4 +23,5 @@ urlpatterns = [
     path('', include('filosofar.apps.blog.urls')),
     path('', include('filosofar.apps.accounts.urls')),
     path('', include('django.contrib.auth.urls')),
+    path('tinymce/', include('tinymce.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
