@@ -9,3 +9,5 @@ from .base import *
 DEBUG = False
 
 # ALLOWED_HOSTS = []
+
+MEDIA_ROOT = os.path.join(PUBLIC_ROOT, 'media')

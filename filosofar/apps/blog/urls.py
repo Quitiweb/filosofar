@@ -4,8 +4,7 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('single', views.single, name='single'), #solo para tests porque single no sera, solo es el modelo. luego ira la url con la fecha + nombre
+    path(r'<int:year>/<int:month>/<int:day>/<slug:slug>', views.Single.as_view(), name='single'),
     path('member', views.member, name='member'),
     path('send_emails', views.send_emails, name='send_emails'),
-    #path('blog', views.blog, name='blog'),
 ]

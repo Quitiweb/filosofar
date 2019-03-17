@@ -3,14 +3,16 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
 from django.utils import timezone
+from django.views.generic import DetailView
 
 from . import models
 from . import forms
 from .tasks import simulate_send_emails
 
 
-def single(request):
-    return render(request, 'blog/single.html')
+class Single(DetailView):
+    model = models.Post
+    template_name = 'blog/single.html'
 
 
 def index(request):

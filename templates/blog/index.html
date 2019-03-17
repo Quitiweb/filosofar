@@ -18,7 +18,7 @@
 		<article class="post">
 			<header>
 				<div class="title">
-					<h2><a href="/single">{{ p.title }}</a></h2>
+					<h2><a href="/{{ p.get_url }}">{{ p.title }}</a></h2>
 					<p>{{ p.subtitle }}</p>
 				</div>
 				<div class="meta">
@@ -26,7 +26,7 @@
 					<a href="https://quitiweb.com" class="author"><span class="name">Qweb</span><img src="{% static 'blog/images/avatar.jpg' %}" alt="" /></a>
 				</div>
 			</header>
-			<a href="/single" class="image featured"><img src="{{ p.main_pic.url }}" alt="" /></a>
+			<a href="/{{ p.get_url }}" class="image featured"><img src="{{ p.main_pic.url }}" alt="" /></a>
 
 			{% autoescape off %}
 				{{ p.body }}
@@ -34,7 +34,7 @@
 
 			<footer>
 				<ul class="actions">
-					<li><a href="/single" class="button large">Continuar leyendo</a></li>
+					<li><a href="/{{ p.get_url }}" class="button large">Continuar leyendo</a></li>
 				</ul>
 				<ul class="stats">
 					<li><a href="#">General</a></li>
@@ -68,11 +68,11 @@
 						{% for p in random_mini_list %}
 							<article class="mini-post">
 								<header>
-									<h3><a href="/single">{{ p.title }}</a></h3>
+									<h3><a href="/{{ p.get_url }}">{{ p.title }}</a></h3>
 									<time class="published" datetime="{{ p.date }}">{{ p.date }}</time>
 									<a href="https://quitiweb.com" class="author"><img src="{% static 'blog/images/avatar.jpg' %}" alt="" /></a>
 								</header>
-								<a href="/single" class="image"><img src="{{ p.main_pic.url }}" alt="" /></a>
+								<a href="/{{ p.get_url }}" class="image"><img src="{{ p.main_pic.url }}" alt="" /></a>
 							</article>
 						{% endfor %}
 
@@ -86,10 +86,10 @@
 							<li>
 								<article>
 									<header>
-										<h3><a href="/single">{{ p.title }}</a></h3>
+										<h3><a href="/{{ p.get_url }}">{{ p.title }}</a></h3>
 										<time class="published" datetime="{{ p.date }}">{{ p.date }}</time>
 									</header>
-									<a href="/single" class="image"><img src="{{ p.main_pic.url }}" alt="" /></a>
+									<a href="/{{ p.get_url }}" class="image"><img src="{{ p.main_pic.url }}" alt="" /></a>
 								</article>
 							</li>
 						{% endfor %}
