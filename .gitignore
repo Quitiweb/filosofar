@@ -105,6 +105,7 @@ venv.bak/
 
 # media_files
 public/
+media/
 
 # pycharm stuff
 .idea/
