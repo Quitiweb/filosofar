@@ -1,6 +1,17 @@
 {% extends 'blog/base.html' %}
 
-{% load staticfiles %}
+{% load static %}
+
+
+{% block header %}
+	{% include "blog/inc/header.html" %}
+{% endblock %}
+
+
+{% block menu %}
+	{% include "blog/inc/menu.html" %}
+{% endblock %}
+
 
 {% block main %}
 

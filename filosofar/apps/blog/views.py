@@ -38,8 +38,8 @@ def member(request):
     if request.method == 'POST':
         form = forms.ImageForm(request.POST, request.FILES)
         if form.is_valid():
-            newPic = models.Imagen(imgFile=request.FILES['imgFile'])
-            newPic.save()
+            new_pic = models.Imagen(imgFile=request.FILES['imgFile'])
+            new_pic.save()
 
             return HttpResponseRedirect(reverse('member'))
     else:

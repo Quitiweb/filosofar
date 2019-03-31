@@ -81,7 +81,7 @@ TEMPLATE_DIRS = (
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(PROJECT_ROOT, 'templates'),'templates', 'filosofar/templates'],
+        'DIRS': [os.path.join(PROJECT_ROOT, 'templates'), 'templates', 'filosofar/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -138,7 +138,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-# STATIC_ROOT and STATIC_URL are for static files - files that are used by your web application and don't change by its users
+# STATIC_ROOT and STATIC_URL are for static files
+# - files that are used by your web application and don't change by its users
 # i.e. static images(you site logo, backgrounds, etc)
 
 STATIC_URL = '/static/'
@@ -159,20 +160,20 @@ STATICFILES_FINDERS = (
 MEDIA_URL = '/media/'
 # /home/rafrom3/filosofar.club/public/media
 
-#MEDIA_ROOT = '/home/rafrom3/filosofar.club/public/media/'
+# MEDIA_ROOT = '/home/rafrom3/filosofar.club/public/media/'
 
 # Login/logout redirects to homepage
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
 # url del broker al que conectamos celery
-#CELERY_BROKER_URL = 'amqp://guest@127.0.0.1:5672//'
+# CELERY_BROKER_URL = 'amqp://guest@127.0.0.1:5672//'
 
 # PENDIENTE
 # Sentry
-#import sentry_sdk
-#from sentry_sdk.integrations.django import DjangoIntegration
+# import sentry_sdk
+# from sentry_sdk.integrations.django import DjangoIntegration
 
-#sentry_sdk.init(
+# sentry_sdk.init(
 #    dsn="https://eb0f720fdc59403f960c0373bf4fb7a8@sentry.io/1331892",
 #    integrations=[DjangoIntegration()])

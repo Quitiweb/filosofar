@@ -1,0 +1,23 @@
+{% load static %}
+
+<header id="header">
+    <h1><a href="/">Filosofar.club</a></h1>
+    <nav class="main">
+        <ul>
+        {% if user.is_authenticated %}
+            <li class="user">
+                <a class="fa-user" href="/member" title="{{ user.username }}">User</a>
+            </li>
+        {% endif %}
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="#">
+                    <input type="text" name="query" placeholder="Search" />
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
