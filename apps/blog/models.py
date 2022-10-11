@@ -2,7 +2,6 @@ from django.db import models
 from tinymce.models import HTMLField
 from django.urls import reverse
 from django.utils import timezone
-from django.utils.translation import ugettext_lazy as _
 
 TITLE = 100
 TEXT = 15000
@@ -11,17 +10,17 @@ TEXT = 15000
 class Post(models.Model):
 
     slug = models.SlugField(
-        _('slug'), max_length=255,
+        'slug', max_length=255,
         unique_for_date='date',
         default='titulo-del-post',
-        help_text=_("Se auto-rellena al escribir el Título")
+        help_text="Se auto-rellena al escribir el Título"
     )
 
     title = models.CharField(max_length=TITLE)
     subtitle = models.CharField(max_length=TITLE, default='')
     body = HTMLField(max_length=TEXT, default='', blank=True)
     date = models.DateTimeField(
-        _('Fecha de publicacion'),
+        'Fecha de publicacion',
         db_index=True, default=timezone.now,
     )
     main_pic = models.ImageField(upload_to='img/post/')
